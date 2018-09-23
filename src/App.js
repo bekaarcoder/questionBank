@@ -1,14 +1,21 @@
 import {Navigation} from 'react-native-navigation';
+import configureStore from './components/Store/config';
+import {Provider} from 'react-redux';
 
 import HomeScreen from './components/Homepage';
 import QuestionScreen from './components/Questions';
 
-Navigation.registerComponent("questionBank.HomeScreen", () => HomeScreen);
-Navigation.registerComponent("questionBank.QuestionScreen", () => QuestionScreen);
+const store = configureStore();
 
-Navigation.startSingleScreenApp({
+Navigation.registerComponent("questionBank.HomeScreen", () => HomeScreen, store, Provider);
+Navigation.registerComponent("questionBank.QuestionScreen", () => QuestionScreen, store, Provider);
+
+export default () => Navigation.startSingleScreenApp({
   screen: {
     screen: "questionBank.HomeScreen",
-    title: "Home"
+    title: "Home",
+    navigatorStyle: {
+      navBarHidden: true
+    }
   }
 });

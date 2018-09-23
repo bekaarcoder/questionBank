@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -38,6 +37,19 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		7C74A96AA9F04ED9AB0F227B /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 614F146A6B954D22B9714096 /* libReactNativeNavigation.a */; };
+		C672EDB5E8A4474F9986E481 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7324AFE90F7847CAB9B9424B /* Roboto-Black.ttf */; };
+		51C004280D9C44FDAF7C8CDE /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAD0B25747D24D229A1F5CB8 /* Roboto-BlackItalic.ttf */; };
+		6DA7C02301214629A30917B6 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CED21DF30B454B0982F0E561 /* Roboto-Bold.ttf */; };
+		E40D4B140E2B407D82EA978E /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3BB2B8E3A334C60B9D7990B /* Roboto-BoldItalic.ttf */; };
+		EE5925E0DA7B40128C36E689 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A82D862C6FA4C49A21C55D2 /* Roboto-Italic.ttf */; };
+		523ABF84BA3C46EF899559D8 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C3460D9243A4B25B07599C1 /* Roboto-Light.ttf */; };
+		B688C03EE2FC4C508A82A67B /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA64B420ABE74AAEB493E07D /* Roboto-LightItalic.ttf */; };
+		D8786893E03C45E9A3C88B41 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19712B8B6B93491B9AAE2234 /* Roboto-Medium.ttf */; };
+		1D5B7135200E4ACE8C37ED20 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D16723C56E4942C9918A4A78 /* Roboto-MediumItalic.ttf */; };
+		1E93AB3ADC6545B9B0F0B86E /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA3A55DFD8374761AD381CB8 /* Roboto-Regular.ttf */; };
+		34313C4280274EF8A408F310 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8215557AFEE04962B9E46205 /* Roboto-Thin.ttf */; };
+		8E67A2150584422B83E2C98B /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73D3D8A57AB74F4F9E109A16 /* Roboto-ThinItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,6 +355,20 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		18AED832AEF046938E8FFFDA /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativeNavigation.xcodeproj"; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		614F146A6B954D22B9714096 /* libReactNativeNavigation.a */ = {isa = PBXFileReference; name = "libReactNativeNavigation.a"; path = "libReactNativeNavigation.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		7324AFE90F7847CAB9B9424B /* Roboto-Black.ttf */ = {isa = PBXFileReference; name = "Roboto-Black.ttf"; path = "../assets/Fonts/Roboto-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FAD0B25747D24D229A1F5CB8 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-BlackItalic.ttf"; path = "../assets/Fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CED21DF30B454B0982F0E561 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; name = "Roboto-Bold.ttf"; path = "../assets/Fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D3BB2B8E3A334C60B9D7990B /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-BoldItalic.ttf"; path = "../assets/Fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8A82D862C6FA4C49A21C55D2 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; name = "Roboto-Italic.ttf"; path = "../assets/Fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9C3460D9243A4B25B07599C1 /* Roboto-Light.ttf */ = {isa = PBXFileReference; name = "Roboto-Light.ttf"; path = "../assets/Fonts/Roboto-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DA64B420ABE74AAEB493E07D /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-LightItalic.ttf"; path = "../assets/Fonts/Roboto-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		19712B8B6B93491B9AAE2234 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; name = "Roboto-Medium.ttf"; path = "../assets/Fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D16723C56E4942C9918A4A78 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-MediumItalic.ttf"; path = "../assets/Fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BA3A55DFD8374761AD381CB8 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/Fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8215557AFEE04962B9E46205 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; name = "Roboto-Thin.ttf"; path = "../assets/Fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		73D3D8A57AB74F4F9E109A16 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-ThinItalic.ttf"; path = "../assets/Fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +396,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				7C74A96AA9F04ED9AB0F227B /* libReactNativeNavigation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +583,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				18AED832AEF046938E8FFFDA /* ReactNativeNavigation.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -577,6 +605,7 @@
 				00E356EF1AD99517003FC87E /* questionBankTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				6875EC96427F438BB1157AE0 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -602,6 +631,26 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		6875EC96427F438BB1157AE0 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				7324AFE90F7847CAB9B9424B /* Roboto-Black.ttf */,
+				FAD0B25747D24D229A1F5CB8 /* Roboto-BlackItalic.ttf */,
+				CED21DF30B454B0982F0E561 /* Roboto-Bold.ttf */,
+				D3BB2B8E3A334C60B9D7990B /* Roboto-BoldItalic.ttf */,
+				8A82D862C6FA4C49A21C55D2 /* Roboto-Italic.ttf */,
+				9C3460D9243A4B25B07599C1 /* Roboto-Light.ttf */,
+				DA64B420ABE74AAEB493E07D /* Roboto-LightItalic.ttf */,
+				19712B8B6B93491B9AAE2234 /* Roboto-Medium.ttf */,
+				D16723C56E4942C9918A4A78 /* Roboto-MediumItalic.ttf */,
+				BA3A55DFD8374761AD381CB8 /* Roboto-Regular.ttf */,
+				8215557AFEE04962B9E46205 /* Roboto-Thin.ttf */,
+				73D3D8A57AB74F4F9E109A16 /* Roboto-ThinItalic.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -684,7 +733,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -1049,6 +1098,18 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				C672EDB5E8A4474F9986E481 /* Roboto-Black.ttf in Resources */,
+				51C004280D9C44FDAF7C8CDE /* Roboto-BlackItalic.ttf in Resources */,
+				6DA7C02301214629A30917B6 /* Roboto-Bold.ttf in Resources */,
+				E40D4B140E2B407D82EA978E /* Roboto-BoldItalic.ttf in Resources */,
+				EE5925E0DA7B40128C36E689 /* Roboto-Italic.ttf in Resources */,
+				523ABF84BA3C46EF899559D8 /* Roboto-Light.ttf in Resources */,
+				B688C03EE2FC4C508A82A67B /* Roboto-LightItalic.ttf in Resources */,
+				D8786893E03C45E9A3C88B41 /* Roboto-Medium.ttf in Resources */,
+				1D5B7135200E4ACE8C37ED20 /* Roboto-MediumItalic.ttf in Resources */,
+				1E93AB3ADC6545B9B0F0B86E /* Roboto-Regular.ttf in Resources */,
+				34313C4280274EF8A408F310 /* Roboto-Thin.ttf in Resources */,
+				8E67A2150584422B83E2C98B /* Roboto-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1181,6 +1242,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/questionBank.app/questionBank";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1199,6 +1268,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/questionBank.app/questionBank";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -1218,6 +1295,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = questionBank;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1236,6 +1317,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = questionBank;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -1262,6 +1347,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1288,6 +1381,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -1313,6 +1414,14 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/questionBank-tvOS.app/questionBank-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1338,6 +1447,14 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/questionBank-tvOS.app/questionBank-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\ios/**",
+				);
 			};
 			name = Release;
 		};

@@ -1,23 +1,42 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native'
+import { StyleSheet, View, Text, Button, ScrollView } from 'react-native';
+
+import Logo from './Logo';
+import LoginPanel from './LoginPanel';
 
 class Homepage extends Component {
+  state = {
+    logoAnimation: false
+  };
+
+  showLogin() {
+    this.setState({
+      logoAnimation: true
+    });
+  }
+
   render() {
     return (
-      <View>
-        <Text>This is homepage</Text>
-        <Button
-          title="Go To Questions"
-          onPress={() => {
-            this.props.navigator.push({
-              screen: "questionBank.QuestionScreen",
-              title: "Questions"
-            })
-          }}
-        />
-      </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <Logo
+            showLogin={this.showLogin.bind(this)}
+          />
+          <LoginPanel
+            show={this.state.logoAnimation}
+          />
+        </View>
+      </ScrollView>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFF',
+    alignItems: 'center'
+  }
+})
 
 export default Homepage;
