@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     flex: 1,
     flexDirection: 'row',
-    maxHeight: 100
+    maxHeight: 70
   },
   question: {
     fontSize: 40,

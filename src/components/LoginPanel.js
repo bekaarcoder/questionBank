@@ -30,7 +30,7 @@ class LoginPanel extends Component {
 
   render() {
     return (
-      <View style={styles.loginPanelContainer}>
+      <View>
         <View style={styles.imageContainer}>
           <Animated.View style={{
             opacity: this.state.backImage
@@ -59,13 +59,7 @@ class LoginPanel extends Component {
 }
 
 const styles = StyleSheet.create({
-  loginPanelContainer: {
-    flexDirection: 'column',
-    flex: 1
-  },
   imageContainer: {
-    flexDirection: 'row',
-    flex: 1,
     alignSelf: 'center'
   },
   imageStyle: {
@@ -73,7 +67,7 @@ const styles = StyleSheet.create({
     height: 150
   },
   formStyleContainer: {
-    marginTop: 10
+    marginTop: 30
   }
 });
 

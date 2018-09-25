@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, Dimensions } from 'react-native';
 
-const width = Dimensions.get('window').width - 50;
+const width = Dimensions.get('window').width - 100;
 
 const Input = (props) => {
   let template = null;
@@ -21,18 +21,13 @@ const Input = (props) => {
       return template;
   }
   return (
-    <View style={styles.inputContainer}>
+    <View>
       {template}
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  inputContainer: {
-    flexDirection: 'row',
-    flex: 1,
-    alignItems: 'stretch'
-  },
   inputStyle: {
     width: width,
     borderBottomWidth: 2,

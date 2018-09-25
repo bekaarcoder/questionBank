@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Animated, Easing } from 'react-native';
+import { StyleSheet, View, Text, Animated, Easing, TouchableOpacity } from 'react-native';
 import Input from './common/Input';
+import Button from './common/Button';
 
 class LoginForm extends Component {
   state = {
@@ -16,6 +17,14 @@ class LoginForm extends Component {
     }
   };
 
+  updateInput = (name, value) => {
+    let formCopy = this.state.form;
+    formCopy[name].value = value;
+    this.setState({
+      form: formCopy
+    });
+  }
+
   render() {
     return (
       <View style={styles.formContainer}>
@@ -23,18 +32,28 @@ class LoginForm extends Component {
           placeholder="Enter your email"
           type={this.state.form.email.type}
           value={this.state.form.email.value}
-          onChangeText={(value) => alert("something")}
+          onChangeText={(value) => this.updateInput("email", value)}
           autoCapitalize={"none"}
           keyboardType={"email-address"}
         />
         <Input
-          placeholder="Enter your email"
-          type={this.state.form.email.type}
-          value={this.state.form.email.value}
-          onChangeText={(value) => alert("something")}
-          autoCapitalize={"none"}
-          keyboardType={"email-address"}
+          placeholder="Enter your password"
+          type={this.state.form.password.type}
+          value={this.state.form.password.value}
+          onChangeText={(value) => this.updateInput("password", value)}
+          secureTextEntry
         />
+        <Button overrideStyle={{marginTop: 20}} onPress={() => alert('login')}>
+          LOGIN
+        </Button>
+        <Button
+          overrideStyle={{marginTop: 30, backgroundColor: '#17a2b8', width: 200}}
+          onPress={() => alert('register')}>
+          I NEED TO REGISTER
+        </Button>
+        <TouchableOpacity>
+          <Text style={styles.skipText}>Skip. I'll do it later</Text>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -42,8 +61,14 @@ class LoginForm extends Component {
 
 const styles = StyleSheet.create({
   formContainer: {
-    flex: 1,
-    minHeight: 400
+    minHeight: 450
+  },
+  skipText: {
+    alignSelf: 'center',
+    color: '#868e96',
+    fontSize: 18,
+    fontFamily: 'RobotoCondensed-Regular',
+    marginTop: 20
   }
 })
 
