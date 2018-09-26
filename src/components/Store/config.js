@@ -1,5 +1,6 @@
 import {createStore, compose, applyMiddleware} from 'redux';
-import promiseMiddleware from 'redux-promise';
+// import promiseMiddleware from 'redux-promise';
+import ReduxThunk from 'redux-thunk';
 import Reducers from './reducers';
 
 let reduxCompose = compose;
@@ -8,7 +9,7 @@ if(__DEV__) {
 }
 
 const configureStore = () => {
-  return createStore(Reducers, reduxCompose(applyMiddleware(promiseMiddleware)));
+  return createStore(Reducers, applyMiddleware(ReduxThunk));
 }
 
 export default configureStore;

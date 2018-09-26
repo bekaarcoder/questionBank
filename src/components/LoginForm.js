@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, Animated, Easing, TouchableOpacity } from 'react-native';
 import Input from './common/Input';
 import Button from './common/Button';
+import LoadMainApp from '../components/MainApp';
 
 class LoginForm extends Component {
   state = {
@@ -26,6 +27,7 @@ class LoginForm extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <View style={styles.formContainer}>
         <Input
@@ -51,7 +53,7 @@ class LoginForm extends Component {
           onPress={() => alert('register')}>
           I NEED TO REGISTER
         </Button>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => LoadMainApp()}>
           <Text style={styles.skipText}>Skip. I'll do it later</Text>
         </TouchableOpacity>
       </View>

@@ -16,6 +16,7 @@ class Homepage extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <ScrollView>
         <View style={styles.container}>
