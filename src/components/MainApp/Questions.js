@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
-import {Card, CardSection} from '../common';
+import { View, Text, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import CategoryListItem from './CategoryListItem';
+import html5 from '../../assets/images/html5.png';
+import css from '../../assets/images/css.png';
+import js from '../../assets/images/js.jpg';
 
 class Questions extends Component {
   state = {
-    list: ['HTML', 'CSS', 'JavaScript']
+    list: [
+      {
+        category: "HTML",
+        image: html5
+      },
+      {
+        category: "CSS",
+        image: css
+      },
+      {
+        category: "JavaScript",
+        image: js
+      }
+    ]
   };
 
   onItemPress = (item) => {
@@ -23,11 +39,7 @@ class Questions extends Component {
       <ScrollView>
         <View style={styles.container}>
           {list.map((listItem) => (
-            <Card>
-              <CardSection>
-                <Text onPress={() => this.onItemPress(listItem)}>{listItem}</Text>
-              </CardSection>
-            </Card>
+            <CategoryListItem category={listItem} onCategoryPress={() => this.onItemPress(listItem.category)} />
           ))}
         </View>
       </ScrollView>
