@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import {connect} from 'react-redux';
+import {deselectItem} from '../Store/actions';
 import CategoryListItem from './CategoryListItem';
 import html5 from '../../assets/images/html5.png';
 import css from '../../assets/images/css.png';
@@ -24,6 +26,8 @@ class Questions extends Component {
   };
 
   onItemPress = (item) => {
+    this.props.deselectItem();
+    console.log(this.props.selectedItem);
     this.props.navigator.push({
       screen: "questionBank.QuestionList",
       title: item,
@@ -38,8 +42,8 @@ class Questions extends Component {
     return (
       <ScrollView>
         <View style={styles.container}>
-          {list.map((listItem) => (
-            <CategoryListItem category={listItem} onCategoryPress={() => this.onItemPress(listItem.category)} />
+          {list.map((listItem, index) => (
+            <CategoryListItem key={index} category={listItem} onCategoryPress={() => this.onItemPress(listItem.category)} />
           ))}
         </View>
       </ScrollView>
@@ -51,6 +55,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   }
-})
+});
 
-export default Questions;
+const mapStateToProps = (state) => ({
+  selectedItem: state.selectedItem
+});
+
+export default connect(mapStateToProps, {deselectItem})(Questions);
