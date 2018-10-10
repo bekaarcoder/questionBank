@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, FlatList } from 'react-native';
 import {connect} from 'react-redux';
 import {fetchQuestions} from '../Store/actions';
 import QuestionListItem from './QuestionListItem';
+import {Spinner} from '../common';
 
 class QuestionList extends Component {
   componentDidMount() {
@@ -10,9 +11,10 @@ class QuestionList extends Component {
   }
 
   render() {
-    const {questions} = this.props;
+    console.log(this.props);
+    const {questions, loading} = this.props.questions;
     let listContent;
-    if(questions !== undefined && questions.length > 0) {
+    if(questions !== null && questions.length > 0 && loading === false) {
       /* listContent = questions.map(list => (
         <Text>{list.question}</Text>
       )); */
@@ -25,11 +27,14 @@ class QuestionList extends Component {
           keyExtractor={item => item.id.toString()}
         />
       )
-    } else {
+    } else if(questions === null || loading) {
       listContent = (
-        <Text>No Questions Found</Text>
+        <View style={styles.spinnerStyle}>
+          <Spinner />
+        </View>
       );
     }
+
     return (
       <View>
         {listContent}
@@ -37,6 +42,15 @@ class QuestionList extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  spinnerStyle: {
+    flex: 1,
+    marginTop: 240,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+});
 
 const mapStateToProps = (state) => ({
   questions: state.questions,
