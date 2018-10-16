@@ -1,24 +1,36 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Animated, Easing, TouchableOpacity } from 'react-native';
-import Input from './common/Input';
-import Button from './common/Button';
+import {Input, Button} from './common';
 import LoadMainApp from '../components/MainApp';
 
 class LoginForm extends Component {
   state = {
+    hasErrors: false,
     form: {
       email: {
         type: "textinput",
         value: '',
+        valid: false,
+        rules: {
+          isEmail: true
+        }
       },
       password: {
         type: "textinput",
-        value: ''
+        value: '',
+        valid: false,
+        rules: {
+          minLength: 6
+        }
       }
     }
   };
 
   updateInput = (name, value) => {
+    this.setState({
+      hasErrors: false
+    });
+
     let formCopy = this.state.form;
     formCopy[name].value = value;
     this.setState({
@@ -50,7 +62,15 @@ class LoginForm extends Component {
         </Button>
         <Button
           overrideStyle={{marginTop: 30, backgroundColor: '#17a2b8', width: 200}}
-          onPress={() => alert('register')}>
+          onPress={() => {
+            this.props.navigator.push({
+              screen: "questionBank.RegisterScreen",
+              title: "Register",
+              navigatorStyle: {
+                navBarHidden: true
+              }
+            })
+          }}>
           I NEED TO REGISTER
         </Button>
         <TouchableOpacity onPress={() => LoadMainApp()}>

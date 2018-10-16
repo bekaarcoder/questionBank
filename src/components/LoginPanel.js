@@ -29,6 +29,7 @@ class LoginPanel extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <View>
         <View style={styles.imageContainer}>
@@ -50,7 +51,7 @@ class LoginPanel extends Component {
               outputRange: [100, 0]
             })
           }}>
-            <LoginForm />
+            <LoginForm navigator={this.props.navigator} />
           </Animated.View>
         </View>
       </View>

@@ -24,7 +24,7 @@ class Homepage extends Component {
             showLogin={this.showLogin.bind(this)}
           />
           <LoginPanel
-            show={this.state.logoAnimation}
+            show={this.state.logoAnimation} navigator={this.props.navigator}
           />
         </View>
       </ScrollView>
