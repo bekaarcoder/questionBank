@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, Animated, Easing, TouchableOpacity } from 'react-native';
 import {Input, Button} from './common';
 import LoadMainApp from '../components/MainApp';
+import ValidationRules from './utils/forms/ValidationRules';
 
 class LoginForm extends Component {
   state = {
@@ -10,16 +11,18 @@ class LoginForm extends Component {
       email: {
         type: "textinput",
         value: '',
-        valid: false,
+        valid: true,
         rules: {
+          isRequired: true,
           isEmail: true
         }
       },
       password: {
         type: "textinput",
         value: '',
-        valid: false,
+        valid: true,
         rules: {
+          isRequired: true,
           minLength: 6
         }
       }
@@ -33,9 +36,30 @@ class LoginForm extends Component {
 
     let formCopy = this.state.form;
     formCopy[name].value = value;
+
+    let rules = formCopy[name].rules;
+    let valid = ValidationRules(value, rules, formCopy);
+    formCopy[name].valid = valid;
+
     this.setState({
       form: formCopy
     });
+  }
+
+  submitForm = () => {
+    const {email, password} = this.state.form;
+    let formData;
+    if(email.value === '' || !email.valid) {
+      this.setState({hasErrors: true});
+    } else if(password.value === '' || !password.valid) {
+      this.setState({hasErrors: true});
+    } else {
+      formData = {
+        email: email.value,
+        password: password.value
+      }
+      console.log(formData);
+    }
   }
 
   render() {
@@ -49,15 +73,20 @@ class LoginForm extends Component {
           onChangeText={(value) => this.updateInput("email", value)}
           autoCapitalize={"none"}
           keyboardType={"email-address"}
+          overrideStyle={!this.state.form.email.valid && {borderBottomColor: '#dc3545'}}
         />
         <Input
           placeholder="Enter your password"
           type={this.state.form.password.type}
           value={this.state.form.password.value}
           onChangeText={(value) => this.updateInput("password", value)}
+          overrideStyle={!this.state.form.password.valid && {borderBottomColor: '#dc3545'}}
           secureTextEntry
         />
-        <Button overrideStyle={{marginTop: 20}} onPress={() => alert('login')}>
+        {this.state.hasErrors && (
+          <Text style={styles.errorText}>Please enter valid data in the above fields.</Text>
+        )}
+        <Button overrideStyle={{marginTop: 20}} onPress={() => this.submitForm()}>
           LOGIN
         </Button>
         <Button
@@ -91,6 +120,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'RobotoCondensed-Regular',
     marginTop: 20
+  },
+  errorText: {
+    alignSelf: 'center',
+    color: '#dc3545',
+    fontSize: 16,
+    fontFamily: 'RobotoCondensed-Regular',
+    marginTop: 10,
+    marginBottom: 10
   }
 })
 
