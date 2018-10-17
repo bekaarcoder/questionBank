@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import {Input, Button} from './common';
+import ValidationRules from './utils/forms/ValidationRules';
 
 class Register extends Component {
   state = {
@@ -8,15 +9,30 @@ class Register extends Component {
     form: {
       email: {
         type: 'textinput',
-        value: ''
+        value: '',
+        valid: true,
+        rules: {
+          isRequired: true,
+          isEmail: true
+        }
       },
       password: {
         type: 'textinput',
-        value: ''
+        value: '',
+        valid: true,
+        rules: {
+          isRequired: true,
+          minLength: 6
+        }
       },
       confirmPassword: {
         type: 'textinput',
-        value: ''
+        value: '',
+        valid: true,
+        rules: {
+          isRequired: true,
+          confirmPass: "password"
+        }
       }
     }
   };
@@ -28,9 +44,32 @@ class Register extends Component {
 
     let formCopy = this.state.form;
     formCopy[name].value = value;
+
+    let rules = formCopy[name].rules;
+    let valid = ValidationRules(value, rules, formCopy);
+    formCopy[name].valid = valid;
+
     this.setState({
       form: formCopy
     });
+  };
+
+  submitForm = () => {
+    const {email, password, confirmPassword} = this.state.form;
+    let formData;
+    if(email.value === '' || !email.valid) {
+      this.setState({hasErrors: true});
+    } else if(password.value === '' || !password.valid) {
+      this.setState({hasErrors: true});
+    } else if(confirmPassword.value === '' || !confirmPassword.valid) {
+      this.setState({hasErrors: true});
+    } else {
+      formData = {
+        email: email.value,
+        password: password.value
+      }
+      console.log(formData);
+    }
   }
 
   render() {
@@ -48,12 +87,14 @@ class Register extends Component {
             autoCapitalize={'none'}
             keyboardType={'email-address'}
             onChangeText={(value) => this.updateInput('email', value)}
+            overrideStyle={!this.state.form.email.valid && {borderBottomColor: '#dc3545'}}
           />
           <Input
             placeholder="Enter Your Password"
             type={this.state.form.password.type}
             value={this.state.form.password.value}
             onChangeText={(value) => this.updateInput('password', value)}
+            overrideStyle={!this.state.form.password.valid && {borderBottomColor: '#dc3545'}}
             secureTextEntry
           />
           <Input
@@ -61,9 +102,13 @@ class Register extends Component {
             type={this.state.form.confirmPassword.type}
             value={this.state.form.confirmPassword.value}
             onChangeText={(value) => this.updateInput('confirmPassword', value)}
+            overrideStyle={!this.state.form.confirmPassword.valid && {borderBottomColor: '#dc3545'}}
             secureTextEntry
           />
-          <Button overrideStyle={{marginTop: 20}}>
+          {this.state.hasErrors && (
+            <Text style={styles.errorText}>Please enter valid data in the above fields.</Text>
+          )}
+          <Button overrideStyle={{marginTop: 20}} onPress={() => this.submitForm()}>
             SUBMIT
           </Button>
           <TouchableOpacity onPress={() => this.props.navigator.pop({})}>
@@ -96,6 +141,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'RobotoCondensed-Regular',
     marginTop: 20
+  },
+  errorText: {
+    alignSelf: 'center',
+    color: '#dc3545',
+    fontSize: 16,
+    fontFamily: 'RobotoCondensed-Regular',
+    marginTop: 10,
+    marginBottom: 10
   }
 })
 
