@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Animated, Easing, TouchableOpacity } from 'react-native';
+import {connect} from 'react-redux';
 import {Input, Button} from './common';
 import LoadMainApp from '../components/MainApp';
 import ValidationRules from './utils/forms/ValidationRules';
+import {loginUser} from './Store/actions/userActions';
 
 class LoginForm extends Component {
   state = {
@@ -58,7 +60,7 @@ class LoginForm extends Component {
         email: email.value,
         password: password.value
       }
-      console.log(formData);
+      this.props.loginUser(formData);
     }
   }
 
@@ -131,4 +133,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default LoginForm;
+export default connect(null, {loginUser})(LoginForm);

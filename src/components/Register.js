@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import {connect} from 'react-redux';
 import {Input, Button} from './common';
 import ValidationRules from './utils/forms/ValidationRules';
+import {signUpUser} from './Store/actions/userActions';
 
 class Register extends Component {
   state = {
@@ -68,7 +70,7 @@ class Register extends Component {
         email: email.value,
         password: password.value
       }
-      console.log(formData);
+      this.props.signUpUser(formData);
     }
   }
 
@@ -150,6 +152,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10
   }
-})
+});
 
-export default Register;
+const mapStateToProps = (state) => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps, {signUpUser})(Register);
