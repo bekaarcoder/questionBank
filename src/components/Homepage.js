@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button, ScrollView } from 'react-native';
-
+import {Spinner} from './common';
 import Logo from './Logo';
 import LoginPanel from './LoginPanel';
+import {getTokens} from './utils/tokens';
 
 class Homepage extends Component {
   state = {
-    logoAnimation: false
+    logoAnimation: false,
+    loading: true
   };
+
+  componentDidMount() {
+    getTokens((tokens) => {
+      if(tokens[0][1] === null) {
+        this.setState({
+          loading: false
+        });
+      }
+    });
+  }
 
   showLogin() {
     this.setState({
@@ -16,7 +28,12 @@ class Homepage extends Component {
   }
 
   render() {
-    console.log(this.props);
+    if(this.state.loading) {
+      return (
+        <Spinner />
+      );
+    }
+
     return (
       <ScrollView>
         <View style={styles.container}>

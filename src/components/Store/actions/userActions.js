@@ -1,6 +1,8 @@
 import {REGISTER_USER, LOGIN_USER} from './types';
 import axios from 'axios';
 import {signup, login} from '../../utils/api/api';
+import LoadMainApp from '../../MainApp';
+import {setTokens} from '../../utils/tokens';
 
 export const signUpUser = ({email, password}) => {
   return(dispatch) => {
@@ -13,7 +15,8 @@ export const signUpUser = ({email, password}) => {
       dispatch({
         type: REGISTER_USER,
         payload: response.data
-      })
+      });
+      LoadMainApp();
     }).catch((error) => {
       console.log(error.response.data);
     });
@@ -32,6 +35,8 @@ export const loginUser = ({email, password}) => {
         type: LOGIN_USER,
         payload: response.data
       });
+      setTokens(response.data, () => console.log('token stored'));
+      LoadMainApp();
     }).catch((error) => {
       console.log(error.response.data);
     })
