@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {Input, Button} from './common';
 import LoadMainApp from '../components/MainApp';
 import ValidationRules from './utils/forms/ValidationRules';
-import {loginUser} from './Store/actions/userActions';
+import {loginUser, clearError} from './Store/actions/userActions';
 
 class LoginForm extends Component {
   state = {
@@ -28,8 +28,21 @@ class LoginForm extends Component {
           minLength: 6
         }
       }
-    }
+    },
+    error: '',
+    loading: false
   };
+
+  static getDerivedStateFromProps(props, state) {
+    console.log("Derived State Loginform", props, state);
+    if(props.error.error !== null) {
+      return {
+        error: props.error.error,
+        loading: false
+      };
+    }
+    return {error: '', loading: false};
+  }
 
   updateInput = (name, value) => {
     this.setState({
@@ -49,12 +62,16 @@ class LoginForm extends Component {
   }
 
   submitForm = () => {
+    this.props.clearError();
+    this.setState({
+      loading: true
+    });
     const {email, password} = this.state.form;
     let formData;
     if(email.value === '' || !email.valid) {
-      this.setState({hasErrors: true});
+      this.setState({hasErrors: true, loading: false});
     } else if(password.value === '' || !password.valid) {
-      this.setState({hasErrors: true});
+      this.setState({hasErrors: true, loading: false});
     } else {
       formData = {
         email: email.value,
@@ -65,7 +82,7 @@ class LoginForm extends Component {
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.state);
     return (
       <View style={styles.formContainer}>
         <Input
@@ -88,7 +105,14 @@ class LoginForm extends Component {
         {this.state.hasErrors && (
           <Text style={styles.errorText}>Please enter valid data in the above fields.</Text>
         )}
-        <Button overrideStyle={{marginTop: 20}} onPress={() => this.submitForm()}>
+        {this.state.error !== '' && (
+          <Text style={styles.errorText}>{this.state.error}</Text>
+        )}
+        <Button
+          overrideStyle={{marginTop: 20}}
+          onPress={() => this.submitForm()}
+          disable={this.state.loading}
+        >
           LOGIN
         </Button>
         <Button
@@ -131,6 +155,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10
   }
-})
+});
 
-export default connect(null, {loginUser})(LoginForm);
+const mapStateToProps = (state) => ({
+  userData: state.User,
+  error: state.error
+});
+
+export default connect(mapStateToProps, {loginUser, clearError})(LoginForm);

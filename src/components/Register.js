@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import {connect} from 'react-redux';
 import {Input, Button} from './common';
 import ValidationRules from './utils/forms/ValidationRules';
-import {signUpUser} from './Store/actions/userActions';
+import {signUpUser, clearError} from './Store/actions/userActions';
 
 class Register extends Component {
   state = {
@@ -36,8 +36,21 @@ class Register extends Component {
           confirmPass: "password"
         }
       }
-    }
+    },
+    error: '',
+    loading: false
   };
+
+  static getDerivedStateFromProps(props, state) {
+    console.log("Derived state Register", props, state);
+    if(props.error.error !== null) {
+      return {
+        error: props.error.error,
+        loading: false
+      }
+    }
+    return { error: '' };
+  }
 
   updateInput = (name, value) => {
     this.setState({
@@ -57,14 +70,18 @@ class Register extends Component {
   };
 
   submitForm = () => {
+    this.props.clearError();
+    this.setState({
+      loading: true
+    });
     const {email, password, confirmPassword} = this.state.form;
     let formData;
     if(email.value === '' || !email.valid) {
-      this.setState({hasErrors: true});
+      this.setState({hasErrors: true, loading: false});
     } else if(password.value === '' || !password.valid) {
-      this.setState({hasErrors: true});
+      this.setState({hasErrors: true, loading: false});
     } else if(confirmPassword.value === '' || !confirmPassword.valid) {
-      this.setState({hasErrors: true});
+      this.setState({hasErrors: true, loading: false});
     } else {
       formData = {
         email: email.value,
@@ -110,7 +127,13 @@ class Register extends Component {
           {this.state.hasErrors && (
             <Text style={styles.errorText}>Please enter valid data in the above fields.</Text>
           )}
-          <Button overrideStyle={{marginTop: 20}} onPress={() => this.submitForm()}>
+          {this.state.error !== '' && (
+            <Text style={styles.errorText}>{this.state.error}</Text>
+          )}
+          <Button
+            overrideStyle={this.state.loading ? {marginTop: 20, backgroundColor: 'grey'} : {marginTop: 20}}
+            onPress={() => this.submitForm()}
+          >
             SUBMIT
           </Button>
           <TouchableOpacity onPress={() => this.props.navigator.pop({})}>
@@ -155,7 +178,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  error: state.error
 });
 
-export default connect(mapStateToProps, {signUpUser})(Register);
+export default connect(mapStateToProps, {signUpUser, clearError})(Register);

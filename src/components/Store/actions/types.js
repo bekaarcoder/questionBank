@@ -5,3 +5,6 @@ export const DESELECT_ITEM = 'DESELECT_ITEM';
 export const SHOW_LOADER = 'SHOW_LOADER';
 export const REGISTER_USER = 'REGISTER_USER';
 export const LOGIN_USER = 'LOGIN_USER';
+export const AUTO_LOGIN = 'AUTO_LOGIN';
+export const SET_ERROR = 'SET_ERROR';
+export const CLEAR_ERROR = 'CLEAR_ERROR';

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button, ScrollView } from 'react-native';
+import {connect} from 'react-redux';
 import {Spinner} from './common';
 import Logo from './Logo';
 import LoginPanel from './LoginPanel';
 import {getTokens} from './utils/tokens';
+import {autoSignIn} from './Store/actions/userActions';
+import LoadMainApp from './MainApp';
 
 class Homepage extends Component {
   state = {
@@ -12,13 +15,28 @@ class Homepage extends Component {
   };
 
   componentDidMount() {
+    console.log("Component Mount");
     getTokens((tokens) => {
       if(tokens[0][1] === null) {
         this.setState({
           loading: false
         });
+      } else {
+        this.props.autoSignIn(tokens[1][1]);
       }
     });
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log(state.loading);
+    const {refreshToken} = props.userData;
+    if(refreshToken !== null) {
+      LoadMainApp();
+      return {
+        loading: true
+      }
+    }
+    return null;
   }
 
   showLogin() {
@@ -57,4 +75,8 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Homepage;
+const mapStateToProps = (state) => ({
+  userData: state.user
+});
+
+export default connect(mapStateToProps, {autoSignIn})(Homepage);
